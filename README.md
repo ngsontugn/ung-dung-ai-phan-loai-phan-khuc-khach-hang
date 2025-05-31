@@ -1,4 +1,10 @@
-# 🧠 Ứng dụng AI trong phân khúc khách hàng bán lẻ trực tuyến
+# 🧠 ỨNG DỤNG AI PHÂN LOẠI PHÂN KHÚC KHÁCH HÀNG TRONG LĨNH VỰC BÁN LẺ TRỰC TUYẾN DỰA TRÊN DỮ LIỆU UCI
+
+> **Sinh viên thực hiện:** Nguyễn Sơn Tùng – NEU  
+> **Môn học:** Phát triển các hệ thống thông tin quản lý  
+> **Trường:** Đại học Kinh tế Quốc Dân  
+> **Thời gian:** 1/2025 – 05/2025
+> ---
 
 ## 📌 Giới thiệu
 Dự án này sử dụng **trí tuệ nhân tạo (AI)**, cụ thể là **thuật toán phân cụm K-Means** kết hợp với mô hình **RFM (Recency - Frequency - Monetary)** để phân loại khách hàng trong lĩnh vực bán lẻ trực tuyến. Dữ liệu được lấy từ **UCI Machine Learning Repository**.
