@@ -2,7 +2,7 @@
 
 > **Môn học:** Ứng dụng trí tuệ nhân tạo trong quản lý và kinh doanh\
 > **Thời gian thực hiện:** 01/2025 - 05/2025
-> > **Liên hệ:** ngsontugn@gmail.com | [LinkedIn](https://linkedin.com/in/ngsontugn)
+> > **Liên hệ:** sontungnguyen894@gmail.com | [LinkedIn](https://linkedin.com/in/ngsontugn)
 
 ---
 
