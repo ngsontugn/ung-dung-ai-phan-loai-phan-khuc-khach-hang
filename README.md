@@ -1,6 +1,6 @@
 # 🤖 Ứng dụng AI phân loại phân khúc khách hàng trong bán lẻ trực tuyến
 
-> **Môn học:** Ứng dụng trí tuệ nhân tạo trong quản lý và kinh doanh
+> **Môn học:** Ứng dụng trí tuệ nhân tạo trong quản lý và kinh doanh\
 > **Thời gian thực hiện:** 01/2025 - 05/2025
 > **Liên hệ:** ngsontugn@gmail.com | [LinkedIn](https://linkedin.com/in/ngsontugn)
 
