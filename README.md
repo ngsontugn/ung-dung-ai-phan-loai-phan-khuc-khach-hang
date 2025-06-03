@@ -1,76 +1,86 @@
-# 🧠 ỨNG DỤNG AI PHÂN LOẠI PHÂN KHÚC KHÁCH HÀNG TRONG LĨNH VỰC BÁN LẺ TRỰC TUYẾN DỰA TRÊN DỮ LIỆU UCI
+# 🤖 Ứng dụng AI phân loại phân khúc khách hàng trong bán lẻ trực tuyến
 
-> **Sinh viên thực hiện:** Nguyễn Sơn Tùng – NEU  
-> **Môn học:** Phát triển các hệ thống thông tin quản lý  
-> **Trường:** Đại học Kinh tế Quốc Dân  
-> **Thời gian:** 1/2025 – 05/2025
-> ---
+> **Môn học:** Ứng dụng trí tuệ nhân tạo trong quản lý và kinh doanh
+> **Thời gian thực hiện:** 01/2025 - 05/2025
+> **Liên hệ:** ngsontugn@gmail.com | [LinkedIn](https://linkedin.com/in/ngsontugn)
 
-## 📌 Giới thiệu
-Dự án này sử dụng **trí tuệ nhân tạo (AI)**, cụ thể là **thuật toán phân cụm K-Means** kết hợp với mô hình **RFM (Recency - Frequency - Monetary)** để phân loại khách hàng trong lĩnh vực bán lẻ trực tuyến. Dữ liệu được lấy từ **UCI Machine Learning Repository**.
+---
+
+## 📌 Mô tả dự án
+
+Dự án ứng dụng thuật toán **K-means clustering** để phân nhóm khách hàng trong lĩnh vực **bán lẻ trực tuyến**, dựa trên dữ liệu thực tế từ kho dữ liệu **UCI (Online Retail Dataset)**.
+
+Thông qua việc phân tích các chỉ số RFM (Recency - Frequency - Monetary), hệ thống giúp doanh nghiệp:
+
+- Xác định nhóm khách hàng trung thành, tiềm năng và có nguy cơ rời bỏ
+- Tối ưu hóa chiến dịch marketing và chăm sóc khách hàng
+- Tăng hiệu quả chuyển đổi và giảm chi phí tiếp thị
 
 ---
 
 ## 🎯 Mục tiêu
-- Xây dựng mô hình phân cụm khách hàng dựa trên hành vi tiêu dùng.
-- Tối ưu hóa chiến lược marketing theo từng nhóm khách hàng cụ thể.
-- Tích hợp hệ thống đầu vào thủ công và qua file CSV giúp dễ sử dụng.
+
+- Xây dựng mô hình AI tự động phân cụm khách hàng theo đặc điểm hành vi mua sắm
+- Áp dụng chuẩn hóa dữ liệu và đánh giá hiệu quả mô hình bằng các chỉ số thống kê
+- Triển khai giao diện đầu vào/đầu ra hỗ trợ sử dụng mô hình cho nhân viên kinh doanh/marketing
 
 ---
 
-## 🛠️ Công nghệ sử dụng
-- Python: `pandas`, `numpy`, `scikit-learn`, `matplotlib`, `seaborn`
-- Streamlit (giao diện người dùng)
-- Jupyter Notebook (phân tích và thử nghiệm)
-- Google Colab hoặc VS Code
+## 📂 Dữ liệu sử dụng
+
+- **Nguồn:** Dataset "Online Retail" từ UCI Machine Learning Repository  
+- **Dung lượng:** ~540,000 dòng dữ liệu, từ 38 quốc gia, chủ yếu tại Anh  
+- **Định dạng:** CSV, gồm các trường như `CustomerID`, `InvoiceDate`, `Quantity`, `UnitPrice`, `Country`...
 
 ---
 
-## 📊 Mô tả dữ liệu
-**Dataset**: Online Retail (UCI)  
-**Thời gian**: 01/12/2010 - 09/12/2011  
-**Các cột chính**:
-- InvoiceNo, StockCode, Description
-- Quantity, InvoiceDate, UnitPrice
-- CustomerID, Country
+## 🔧 Các bước thực hiện
 
----
-
-## ⚙️ Quy trình thực hiện
 1. **Tiền xử lý dữ liệu**
-   - Xoá bản ghi không hợp lệ (hủy đơn, thiếu CustomerID,...)
-   - Phát hiện và loại bỏ ngoại lệ bằng Isolation Forest
+   - Loại bỏ giao dịch hủy (`InvoiceNo` bắt đầu bằng "C")
+   - Xử lý missing values
+   - Phát hiện và loại outliers bằng Isolation Forest
 
 2. **Tạo đặc trưng RFM**
-   - Recency: Số ngày từ lần mua gần nhất
-   - Frequency: Số lần mua hàng
+   - Recency: Số ngày kể từ lần mua gần nhất
+   - Frequency: Tần suất mua hàng
    - Monetary: Tổng chi tiêu
 
 3. **Chuẩn hóa dữ liệu**
-   - Sử dụng `StandardScaler` để scale RFM
+   - Dùng `StandardScaler` để chuẩn hóa dữ liệu đầu vào
 
-4. **Phân cụm bằng KMeans**
-   - Dùng Elbow Method để chọn K = 3
-   - Phân thành 3 nhóm khách hàng:
-     - Khách phổ thông
-     - Khách VIP
-     - Khách rời bỏ
+4. **Phân cụm với KMeans**
+   - Sử dụng phương pháp Elbow để xác định số cụm `k`
+   - Chạy mô hình KMeans với `k=3`
 
 5. **Đánh giá mô hình**
-   - Silhouette Score: `0.484`
-   - Calinski-Harabasz: `4576.92`
-   - Davies-Bouldin: `0.728`
+   - Chỉ số Silhouette: `0.484` (tốt)
+   - Davies-Bouldin: `0.728` (càng thấp càng tốt)
+   - Calinski-Harabasz: `4576` (càng cao càng tốt)
 
-6. **Xây dựng giao diện**
-   - Nhập tay từng khách (Recency, Frequency, Monetary)
-   - Tải file CSV để phân tích hàng loạt
-
----
-
-## 🖥️ Giao diện người dùng (Streamlit)
-- **Thủ công**: nhập RFM để kiểm tra 1 khách hàng
-- **CSV**: xuất bảng gồm CustomerID, R, F, M và Cụm (Cluster)
+6. **Triển khai giao diện người dùng**
+   - Nhập liệu thủ công (1 khách hàng)
+   - Upload file CSV (nhiều khách hàng)
+   - Xuất kết quả bảng phân cụm khách hàng
 
 ---
 
-## 📁 Cấu trúc thư mục
+## 🧠 Kết quả phân cụm
+
+| Cụm | Recency | Frequency | Monetary | Diễn giải |
+|-----|---------|-----------|----------|-----------|
+| 0   | 49.57   | 2.47      | 738.32   | Khách phổ thông |
+| 1   | 28.50   | 8.07      | 3133.57  | Khách hàng VIP |
+| 2   | 251.49  | 1.44      | 410.44   | Khách hàng đã rời bỏ |
+
+> Nhóm VIP (Cluster 1) là khách mua gần đây, thường xuyên và chi tiêu cao — nhóm nên được giữ chân ưu tiên.
+
+---
+
+## 🧾 Công nghệ sử dụng
+
+- Python (Pandas, Scikit-learn, Matplotlib)
+- Jupyter Notebook
+- Isolation Forest (outlier detection)
+- KMeans Clustering (AI Unsupervised)
+- Streamlit / Flask (nếu có UI)
